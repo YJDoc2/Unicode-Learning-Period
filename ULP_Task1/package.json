@@ -1,0 +1,19 @@
+{
+  "name": "ulp_task1",
+  "version": "1.0.0",
+  "description": "Unicode Learning Period Task 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "YJ",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.10",
+    "nodemon": "^1.19.1",
+    "uuid": "^3.3.3"
+  }
+}
