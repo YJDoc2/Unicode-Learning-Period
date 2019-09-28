@@ -1,36 +1,35 @@
 const mongoose = require('mongoose');
 let MenuItem = require('./menuItem');
 
-let restaurentSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  id: {
-    type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  stars: {
-    type: Number,
-    required: false
-  },
-  categories: [
-    {
+let restaurentSchema = mongoose.Schema(
+  {
+    name: {
       type: String,
-      required: false
-    }
-  ],
-  menu: [
-    {
+      required: true
+    },
+    id: {
       type: String,
-      required: false
-    }
-  ]
-});
+      required: true
+    },
+    address: {
+      type: String,
+      required: true
+    },
+    categories: [
+      {
+        type: String,
+        required: false
+      }
+    ],
+    menu: [
+      {
+        type: String,
+        required: false
+      }
+    ]
+  },
+  { collection: 'Restaurent' }
+);
 
 const Restaurent = (module.exports = mongoose.model(
   'Restaurent',
