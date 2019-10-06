@@ -1,0 +1,9 @@
+>>>>> Task 1 -> Task 2
+- updated endpoint names
+- split searching endpoints from /api route to /search route
+- added list endpoint
+- updated res.json -> res.status.send
+- added user model and user route
+- updated restaurent schema -> remove menu attr, menuitem schema -> added restauretId attr
+- changed model saving, from creation and model.save -> model.create
+- reduced manual sanity checks and changed manaul model creation -> model.create(req.body)
