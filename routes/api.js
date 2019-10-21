@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const Restaurent = require('../models/restaurent');
 const MenuItem = require('../models/menuItem');
+const ServiceChat = require('../models/serviceChat');
 
 //! ROUTES TESTED AND WORKING
 
@@ -222,7 +223,37 @@ router.delete('/remove/restaurent', verifyAuthorized, async (req, res) => {
         );
         res.status(200).send({ Success: true });
     } catch (err) {
-        res.status(400).send({ Success: true, err: err });
+        res.status(400).send({ Success: false, err: err });
+    }
+});
+
+//! SERVICE REQUEST CHAT LOG ENDPOINT
+router.post('/support/log', verifyAuthorized, async (req, res) => {
+    let chatId = req.body.chatId;
+    try {
+        let chat = await ServiceChat.findOne({ id: chatId });
+        if (!chat) {
+            res.status(400).send({
+                Success: false,
+                err: 'No Chat with this id Exist'
+            });
+            return;
+        }
+        let update = await ServiceChat.findOneAndUpdate(
+            { id: chatId },
+            {
+                $push: {
+                    chat: {
+                        sender: req.body.sender,
+                        time: req.body.time,
+                        message: req.body.message
+                    }
+                }
+            }
+        );
+        res.status(201).send({ Success: true });
+    } catch (err) {
+        res.status(400).send({ Success: false, err: err });
     }
 });
 

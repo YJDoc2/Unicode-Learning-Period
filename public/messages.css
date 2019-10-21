@@ -1,0 +1,51 @@
+.speech-bubble-self {
+  margin: 0.5rem 1.5rem;
+  padding: 1rem;
+  justify-self: end;
+  position: relative;
+  background: #add8e6;
+  border-radius: 0.4em;
+}
+
+.speech-bubble-self:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-left-color: #add8e6;
+  border-right: 0;
+  border-bottom: 0;
+  margin-top: -10px;
+  margin-right: -20px;
+}
+
+.speech-bubble-other {
+  margin: 0.5rem 1.5rem;
+  padding: 1rem;
+  justify-self: start;
+  position: relative;
+  background: #90ee90;
+  border-radius: 0.4em;
+}
+.speech-bubble-other:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-right-color: #90ee90;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -10px;
+  margin-left: -20px;
+}
+.textBox {
+  display: grid;
+  /*border: #000 1px solid;*/
+  width: inherit;
+}

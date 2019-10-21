@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -21,6 +24,20 @@ db.on('err', err => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+io.on('connection', socket => {
+    require('./routes/sockets')(socket, io);
+    return io;
+});
+
+app.use('/', express.static(path.join(__dirname, 'public')));
+
+app.get('/support', (req, res) => {
+    res.render('support');
+});
+
 let search = require('./routes/search');
 app.use('/search', search);
 
@@ -30,6 +47,6 @@ app.use('/user', user);
 let api = require('./routes/api');
 app.use('/api', api);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Sever Listening on port ${PORT}`);
 });

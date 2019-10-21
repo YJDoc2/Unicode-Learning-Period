@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/messages.css" />
+        <title>Support Page</title>
+    </head>
+    <body>
+        <div class="container m-2">
+            <div class="row">
+                <div class="col-md-4 mt-4" id="login">
+                    <div class="m-2 box p-4" id="client">
+                        <h3>General Login</h3>
+                        <label>Username</label>
+                        <input type="text" class="form-control" id="clientU" />
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="clientP"
+                        /><br />
+                        <button
+                            class="btn btn-primary btn-block"
+                            id="clientBtn"
+                        >
+                            Login
+                        </button>
+                    </div>
+
+                    <br />
+
+                    <div class="m-2 box p-4" id="support">
+                        <h3>Support Login</h3>
+                        <label>Username</label>
+                        <input type="text" class="form-control" id="supportU" />
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="supportP"
+                        />
+                        <br />
+                        <button
+                            class="btn btn-primary btn-block"
+                            id="supportBtn"
+                        >
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+                <!--CHATBOX HERE-->
+                <div id="chatbox" class="col-md-8" style="display: none;">
+                    <div id="chat" class="box" style="height: 35rem;"></div>
+                    <div class="input-group mt-2">
+                        <input
+                            id="msg"
+                            type="text"
+                            class="form-control"
+                            placeholder="message"
+                        />
+                        <div class="input-group-append">
+                            <button
+                                class="btn btn-outline-primary"
+                                type="button"
+                                id="sendBtn"
+                                style="display:none;"
+                            >
+                                Send
+                            </button>
+                        </div>
+                        <button
+                            class="btn btn-primary"
+                            id="startBtn"
+                            style="position: absolute;bottom: 0; display: block; width: inherit;"
+                        >
+                            Start Chat
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div
+                        class=" btn mt-4"
+                        id="info"
+                        style="width: inherit;display: none;"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/support.js"></script>
+</html>

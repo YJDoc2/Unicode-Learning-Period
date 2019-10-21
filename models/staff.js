@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let userSchema = mongoose.Schema(
+let staffSchema = mongoose.Schema(
     {
         name: {
             type: String,
@@ -17,14 +17,9 @@ let userSchema = mongoose.Schema(
         passHash: {
             type: String,
             required: true
-        },
-        owner: {
-            type: Boolean,
-            default: false
-        },
-        restaurentIDs: [String]
+        }
     },
-    { collectin: 'Users' } //! Please Make it  'Collection'
+    { collection: 'Staff' }
 );
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Staff', staffSchema);
